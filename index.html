@@ -784,16 +784,6 @@
       /* احذفي overflow-x و padding-bottom */
     }
     @media (max-width: 700px) {
-      .navbar {
-        background: #181c23;
-        box-shadow: 0 2px 12px #0002;
-        border-bottom: 1px solid #23272f;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        z-index: 1000;
-      }
       .navbar .container {
         flex-direction: column;
         justify-content: center;
@@ -803,8 +793,8 @@
       }
       .nav-menu {
         flex-direction: column;
-        gap: 0;
-        padding: 0;
+        gap: 0.2rem;
+        padding: 0.5rem 0.2rem;
         border-radius: 0;
         width: 100vw;
         align-items: center;
@@ -815,41 +805,14 @@
         width: 100vw;
         text-align: center;
         font-size: 1.15rem;
-        padding: 1.1rem 0;
+        padding: 0.9rem 0;
         border-radius: 0;
         margin: 0;
         border-bottom: 1px solid #23272f;
-        background: #181c23;
-        transition: background 0.2s, color 0.2s;
       }
       .nav-link:last-child {
         border-bottom: none;
       }
-      .nav-link.active,
-      .nav-link:focus,
-      .nav-link:hover {
-        background: #23272f !important;
-        color: #fff !important;
-        border-radius: 0 !important;
-      }
-    }
-    .dashboard-btn-blue {
-      background: linear-gradient(90deg, #172a52 0%, #17678a 100%) !important; /* أزرق متدرج */
-      color: #fff !important;
-      border: none;
-    }
-    .dashboard-btn-blue:hover {
-      background: linear-gradient(90deg, #0f3546 0%, #020918 100%) !important;
-      color: #fff !important;
-    }
-    .dashboard-btn-darkblue {
-      background: linear-gradient(90deg, #172a52 0%, #17678a 100%) !important;
-      color: #fff !important;
-      border: none;
-    }
-    .dashboard-btn-darkblue:hover {
-      background: linear-gradient(90deg, #0f3546 0%, #020918 100%) !important;
-      color: #fff !important;
     }
   </style>
 </head>
@@ -978,7 +941,7 @@
                 <a href="https://github.com/BassantEl-emem/spotify-streaming-insights" target="_blank" class="modern-btn github-btn">
                   <img src="icons8-github-50.png" style="width:22px; height:22px; vertical-align:middle;"> GitHub
                 </a>
-                <a href="https://public.tableau.com/views/finalspotify_17530680955210/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="modern-btn dashboard-btn dashboard-btn-blue">
+                <a href="https://public.tableau.com/views/finalspotify_17530680955210/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="modern-btn dashboard-btn">
                   <img src="tableau.png" style="width:22px; height:22px; vertical-align:middle;"> Dashboard
                 </a>
               </div>
