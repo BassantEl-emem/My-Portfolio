@@ -67,26 +67,15 @@
       padding: 1rem 2rem;
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 1000;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-      border-bottom: 1px solid #23272f;
-    }
-    .navbar {
-      width: 100%;
-      background: rgba(26,26,26,0.95);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-      border-bottom: 1px solid #23272f;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
+      box-shadow: 0 4px 30px var(--shadow);
+      border-bottom: 1px solid var(--border);
     }
     .navbar .container {
       display: flex;
-      justify-content: center;
+      justify-content: center; /* توسيط القائمة */
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0.5rem 0;
     }
     .nav-menu {
       display: flex;
@@ -95,7 +84,6 @@
       padding: 0.7rem 2.5rem;
       border-radius: 30px;
       box-shadow: 0 2px 12px #0002;
-      align-items: center;
     }
     .navbar h1 {
       margin: 0; font-size: 2em;
@@ -111,13 +99,9 @@
       to { filter: drop-shadow(0 0 20px var(--accent)); }
     }
     .nav-link {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      padding: 0.5rem 1.2rem;
-      border-radius: 20px;
-      transition: background 0.2s, color 0.2s;
+      color: var(--text-primary); text-decoration: none; font-weight: 600;
+      position: relative; transition: all 0.3s ease;
+      padding: 0.5rem 1rem; border-radius: 25px;
     }
     .nav-link::before {
       content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -125,10 +109,7 @@
       border-radius: 25px; opacity: 0; transition: opacity 0.3s ease; z-index: -1;
     }
     .nav-link:hover::before, .nav-link.active::before { opacity: 1; }
-    .nav-link:hover, .nav-link.active {
-      background: #23272f;
-      color: #7c3aed;
-    }
+    .nav-link:hover, .nav-link.active { color: white; transform: translateY(-2px); }
     main { margin-top: 80px; }
     section {
       padding: 6rem 2rem; opacity: 0; transform: translateY(50px);
@@ -800,28 +781,44 @@
       /* احذفي overflow-x و padding-bottom */
     }
     @media (max-width: 700px) {
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        background: #181c23;
+        box-shadow: 0 2px 12px #0002;
+        border-bottom: 1px solid #23272f;
+        z-index: 1000;
+      }
       .navbar .container {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0.5rem 0;
+        padding: 0.2rem 0;
+        max-width: 100vw;
       }
       .nav-menu {
         flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.7rem 0.5rem;
-        border-radius: 18px;
-        width: auto;
+        gap: 0.2rem;
+        padding: 0.5rem 0.2rem;
+        border-radius: 0;
+        width: 100vw;
         align-items: center;
         box-shadow: none;
-        background: #181c23;
+        background: transparent;
       }
       .nav-link {
-        width: 100%;
+        width: 100vw;
         text-align: center;
-        font-size: 1.15rem;
-        padding: 0.8rem 0;
-        border-radius: 12px;
+        font-size: 1.1rem;
+        padding: 0.9rem 0;
+        border-radius: 0;
+        margin: 0;
+        border-bottom: 1px solid #23272f;
+      }
+      .nav-link:last-child {
+        border-bottom: none;
       }
     }
   </style>
@@ -899,7 +896,7 @@
           <!-- AdventureWorks -->
           <div class="project-card-modern">
             <div class="project-image">
-              <img src="Adventure-xork.png" alt="AdventureWorks Sales Dashboard" />
+              <img src="dashboards/Adventure-xork.png" alt="AdventureWorks Sales Dashboard" />
             </div>
             <div class="project-content">
               <div class="project-title">AdventureWorks Sales Dashboard</div>
@@ -920,7 +917,7 @@
           <!-- Netflix -->
           <div class="project-card-modern">
             <div class="project-image">
-              <img src="netfli.png" alt="Netflix Data Analysis Dashboard" />
+              <img src="dashboards/netfli.png" alt="Netflix Data Analysis Dashboard" />
             </div>
             <div class="project-content">
               <div class="project-title">Netflix Data Analysis Dashboard</div>
@@ -940,7 +937,7 @@
           <!-- Spotify -->
           <div class="project-card-modern">
             <div class="project-image">
-              <img src="spotify.png" alt="Spotify Streaming Insights Dashboard" />
+              <img src="dashboards/spotify.png" alt="Spotify Streaming Insights Dashboard" />
             </div>
             <div class="project-content">
               <div class="project-title">Spotify Streaming Insights Dashboard</div>
@@ -952,7 +949,7 @@
                   <img src="icons8-github-50.png" style="width:22px; height:22px; vertical-align:middle;"> GitHub
                 </a>
                 <a href="https://public.tableau.com/views/finalspotify_17530680955210/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="modern-btn dashboard-btn">
-                  <img src="tableau.png" style="width:22px; height:22px; vertical-align:middle;"> Dashboard
+                  <img src="logos/tableau.png" style="width:22px; height:22px; vertical-align:middle;"> Dashboard
                 </a>
               </div>
             </div>
