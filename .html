@@ -71,8 +71,19 @@
       border-bottom: 1px solid var(--border);
     }
     .navbar .container {
-      display: flex; justify-content: space-between; align-items: center;
-      max-width: 1200px; margin: 0 auto;
+      display: flex;
+      justify-content: center; /* توسيط القائمة */
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      background: #181c23;
+      padding: 0.7rem 2.5rem;
+      border-radius: 30px;
+      box-shadow: 0 2px 12px #0002;
     }
     .navbar h1 {
       margin: 0; font-size: 2em;
@@ -87,7 +98,6 @@
       from { filter: drop-shadow(0 0 5px var(--accent)); }
       to { filter: drop-shadow(0 0 20px var(--accent)); }
     }
-    .nav-menu { display: flex; gap: 2rem; }
     .nav-link {
       color: var(--text-primary); text-decoration: none; font-weight: 600;
       position: relative; transition: all 0.3s ease;
@@ -180,58 +190,58 @@
     
     /* Skills Section - New */
     .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 2rem;
+      justify-content: center;
       margin-top: 2rem;
     }
+
     .skill-card {
-      background: rgba(42, 42, 42, 0.8);
-      border-radius: 15px;
-      padding: 2rem;
+      background: rgba(42, 42, 42, 0.9);
+      border-radius: 16px;
+      padding: 1.5rem 1.2rem 1.2rem 1.2rem;
       text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
+      width: 180px;
+      box-shadow: 0 4px 24px rgba(124, 58, 237, 0.10);
+      border: 1px solid #23272f;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .skill-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px var(--shadow);
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 12px 32px rgba(124, 58, 237, 0.18);
       border-color: var(--accent);
     }
-    .skill-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1rem;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      background: linear-gradient(45deg, var(--accent), var(--accent-hover));
-      box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+    .skill-icon-img {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 1rem;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+      padding: 8px;
     }
     .skill-card h3 {
-      color: var(--text-primary);
-      margin-bottom: 1rem;
-      font-size: 1.3em;
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
     }
     .skill-card p {
-      color: var(--text-secondary);
-      font-size: 0.9em;
-      line-height: 1.6;
-    }
-    .skill-level {
-      margin-top: 1rem;
-      background: rgba(26, 26, 26, 0.5);
-      border-radius: 10px;
-      padding: 0.5rem;
+      color: #b0b0b0;
+      font-size: 0.95em;
+      margin-bottom: 0.7rem;
     }
     .skill-level-bar {
+      width: 100%;
       height: 6px;
-      background: rgba(124, 58, 237, 0.2);
+      background: rgba(124, 58, 237, 0.15);
       border-radius: 3px;
+      margin-top: 0.5rem;
       overflow: hidden;
     }
     .skill-level-fill {
@@ -243,39 +253,107 @@
     
     /* Projects Section - Updated with Real Links */
     .projects-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem; margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
     }
-    .project-card {
-      background: rgba(42, 42, 42, 0.8); border-radius: 15px;
-      box-shadow: 0 10px 30px var(--shadow); transition: all 0.3s ease;
-      border: 1px solid var(--border); position: relative; overflow: hidden;
+    @media (max-width: 1000px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
-    .project-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px var(--shadow); }
-    .project-image {
-      width: 100%; height: 200px; overflow: hidden; position: relative;
+    .project-card-modern {
+      display: flex;
+      flex-direction: column;
+      background: #181c23;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      overflow: hidden;
+      border: 1px solid #23272f;
+      transition: transform 0.3s, box-shadow 0.3s;
+      min-height: 570px; /* أو 600px حسب ذوقك */
+      height: 100%;
     }
-    .project-image img {
-      width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;
+    .project-card-modern .project-image {
+      width: 100%;
+      height: 270px; /* ارتفاع متوازن لمعظم الصور */
+      background: #23272f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
-    .project-card:hover .project-image img {
-      transform: scale(1.1);
+    .project-card-modern .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* تظهر الصورة كاملة بدون قص */
+      background: #23272f;
+      border-radius: 0;
+      display: block;
+      padding: 10px; /* مسافة حول الصورة حتى لا تلتصق بالحواف */
     }
-    .project-content {
-      padding: 1.5rem;
+    .project-card-modern .project-content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem 1.5rem 1.5rem 1.5rem; /* زودي البادينج */
+      background: #23272f;
     }
-    .project-card h3 { color: var(--text-primary); margin-bottom: 1rem; font-size: 1.3em; }
-    .project-card p { color: var(--text-secondary); margin: 0; text-align: left; }
+    .project-title {
+      color: #fff;
+      font-size: 1.45rem; /* أكبر */
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    .project-desc {
+      color: #b0b0b0;
+      font-size: 1.13rem; /* أكبر */
+      margin-bottom: 1.5rem;
+      flex: 1 1 auto;
+      min-height: 80px;
+      max-height: 120px;
+      overflow: hidden;
+    }
     .project-links {
-      margin-top: 1rem; display: flex; gap: 1rem;
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
     }
-    .project-link {
-      background: var(--accent); color: white; padding: 0.5rem 1rem;
-      border-radius: 5px; text-decoration: none; font-size: 0.9em;
-      transition: all 0.3s ease;
+    .project-links .modern-btn {
+      flex: 1 1 0;
+      min-width: 120px;
+      justify-content: center;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.3rem;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
     }
-    .project-link:hover {
-      background: var(--accent-hover); transform: translateY(-2px);
+    .project-links .github-btn {
+      background: #23272f;
+      color: #fff;
+      border: 1px solid #444;
+    }
+    .project-links .github-btn:hover {
+      background: #181c23;
+      color: #7c3aed;
+    }
+    .project-links .dashboard-btn {
+      background: linear-gradient(90deg, #fbbf24 0%, #f59e42 100%);
+      color: #23272f;
+      border: none;
+    }
+    .project-links .dashboard-btn:hover {
+      background: linear-gradient(90deg, #f59e42 0%, #fbbf24 100%);
+      color: #23272f;
     }
     
     .contact-info {
@@ -322,6 +400,386 @@
       .section-container { padding: 1.5rem; }
       .profile-image { width: 150px; height: 150px; }
     }
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+      background: rgba(42, 42, 42, 0.8);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: #23272f;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 0.7rem 1.3rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+      margin-bottom: 0.5rem;
+    }
+    .contact-btn img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: #fff;
+      padding: 2px;
+    }
+    .contact-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .skills-section {
+      margin-top: 3rem;
+    }
+    .skills-scroll {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    .skill-card-modern {
+      flex: 0 0 200px;
+      background: rgba(42, 42, 42, 0.95);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(124, 58, 237, 0.10);
+      border: 1px solid #23272f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 1.5rem 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      scroll-snap-align: start;
+      min-width: 200px;
+      max-width: 220px;
+      position: relative;
+    }
+    .skill-card-modern:hover {
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 12px 32px rgba(124, 58, 237, 0.18);
+      border-color: var(--accent);
+    }
+    .skill-card-modern .skill-icon-img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+      margin-bottom: 1.2rem;
+      padding: 10px;
+    }
+    .skill-card-modern h3 {
+      color: #fff;
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    .skill-card-modern p {
+      color: #b0b0b0;
+      font-size: 0.98em;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .skill-level-bar {
+      width: 100%;
+      height: 7px;
+      background: rgba(124, 58, 237, 0.15);
+      border-radius: 3px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .skill-level-fill {
+      height: 100%;
+      background: linear-gradient(45deg, var(--accent), var(--accent-hover));
+      border-radius: 3px;
+      transition: width 1s ease;
+    }
+    @media (max-width: 600px) {
+      .skill-card-modern {
+        min-width: 150px;
+        max-width: 170px;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+      }
+      .skill-card-modern .skill-icon-img {
+        width: 48px;
+        height: 48px;
+        padding: 5px;
+      }
+    }
+    .main-name {
+      text-align: center;
+      font-size: 2.7rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.2rem;
+      margin-top: -1.5rem;
+      background: linear-gradient(90deg, #7c3aed 10%, #fbbf24 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      animation: name-glow 2s infinite alternate;
+    }
+    @keyframes name-glow {
+      from { filter: drop-shadow(0 0 8px #7c3aed); }
+      to   { filter: drop-shadow(0 0 18px #fbbf24); }
+    }
+    .main-name .el-emem {
+      font-size: 1.1em;
+      font-weight: 900;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #fbbf24 10%, #7c3aed 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .about-profile-card {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      background: linear-gradient(120deg, #23272f 60%, #7c3aed22 100%);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(124, 58, 237, 0.10);
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .profile-left {
+      flex: 0 0 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile-image-large {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fbbf24 0%, #7c3aed 100%);
+      padding: 6px;
+      box-shadow: 0 4px 24px #7c3aed33;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .profile-image-large img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      background: #fff;
+    }
+    .profile-right {
+      flex: 1 1 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .main-name-pro {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      margin-bottom: 1.2rem;
+      color: #d6cfcf !important;
+      text-align: left;
+      line-height: 1.1;
+      background: none !important;
+      /* أزيلي أو علقي السطر التالي مؤقتًا */
+      /* text-shadow: 0 2px 8px #0006; */
+    }
+    .main-name-pro .first {
+      font-size: 1em;
+      font-weight: 900;
+    }
+    .main-name-pro .last {
+      font-size: 1.1em;
+      font-weight: 900;
+      background: linear-gradient(90deg, #fbbf24 10%, #7c3aed 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      margin-left: 0.3em;
+    }
+    .about-summary {
+      font-size: 1.15rem;
+      color: #b0b0b0;
+      margin-bottom: 1.2rem;
+    }
+    .about-summary .about-highlight {
+      color: #fbbf24;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    @media (max-width: 900px) {
+      .about-profile-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 0.5rem;
+      }
+      .profile-left, .profile-right {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      .main-name-pro {
+        justify-content: center;
+        font-size: 2rem;
+      }
+      .profile-image-large {
+        width: 140px;
+        height: 140px;
+      }
+    }
+    .about-profile-card-pro {
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+      background: #181c23;
+      border-radius: 28px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+      padding: 4rem 3.5rem;
+      flex-wrap: wrap;
+      border: 1px solid #23272f;
+      max-width: 1100px;
+      width: 100%;
+    }
+    .profile-left-pro {
+      flex: 0 0 260px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile-image-pro {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #23272f;
+      background: #23272f;
+      box-shadow: 0 2px 24px #0004;
+    }
+    .profile-right-pro {
+      flex: 1 1 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start; /* اجعليها flex-start افتراضيًا */
+    }
+    .main-name-pro {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      margin-bottom: 1.2rem;
+      color: #222;
+      text-align: left;
+      line-height: 1.1;
+      background: none;
+      text-shadow: 0 2px 8px #0006;
+    }
+    .main-name-pro .last {
+      color: #7c3aed;
+      font-weight: 900;
+      margin-left: 0.3em;
+      letter-spacing: 2px;
+    }
+    .about-summary-pro {
+      font-size: 1.25rem;
+      color: #b0b0b0;
+      margin-bottom: 2rem;
+      text-align: left;
+      max-width: 700px;
+      line-height: 1.8;
+    }
+    .about-summary-pro .about-title {
+      color: #fff;
+      font-size: 1.1em;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      letter-spacing: 0.5px;
+    }
+    .btn-download {
+      background: #23272f;
+      color: #ffffff;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      display: inline-block;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px #0002;
+      border: 1px solid #444;
+      align-self: center; /* هذا يجعل الزر في المنتصف أفقيًا */
+    }
+    .btn-download:hover {
+      background: #31343b;
+      color: #7c3aed;
+    }
+    @media (max-width: 1100px) {
+      .about-profile-card-pro {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0.5rem;
+        max-width: 98vw;
+        gap: 1.5rem;
+      }
+      .profile-left-pro, .profile-right-pro {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      .main-name-pro {
+        text-align: center;
+        font-size: 2.2rem;
+      }
+      .about-summary-pro {
+        text-align: center;
+        font-size: 1.08rem;
+      }
+      .profile-image-pro {
+        width: 160px;
+        height: 160px;
+      }
+    }
+    /* توسيط كارت البروفايل في الصفحة */
+    .about-profile-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
+    .skills-grid-pro {
+      display: flex;
+      flex-wrap: wrap;         /* التفاف دائمًا */
+      gap: 2rem;
+      justify-content: center;
+      align-items: stretch;
+      margin-top: 2rem;
+      /* احذفي overflow-x و padding-bottom */
+    }
   </style>
 </head>
 <body>
@@ -329,7 +787,6 @@
   <div class="particles" id="particles"></div>
   <header class="navbar">
     <div class="container">
-      <h1>Bassant Samy</h1>
       <nav class="nav-menu">
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
@@ -340,88 +797,52 @@
   </header>
   <main>
     <section id="about">
-      <div class="section-container">
-        <h2>About Me</h2>
-        <div class="about-content">
-          <div class="profile-section">
-            <div class="profile-image">
-              <img src="photo.jpg" alt="Bassant Samy" />
-            </div>
-            <a href="Bassant_Samy_CV.pdf" download class="btn-download">📄 Download CV</a>
+      <div class="about-profile-wrapper">
+        <div class="section-container about-profile-card-pro">
+          <div class="profile-left-pro">
+            <img src="photo.jpg" alt="Bassant Samy EL-emem" class="profile-image-pro" />
           </div>
-          <div class="about-text">
-            <h3>Data Analyst & Power BI Specialist</h3>
-            <p>Hello! I'm Bassant Samy, a passionate Data Analyst in training at ITI (Power BI track). I love transforming complex data into meaningful insights that drive business decisions.</p>
-            <p>With a strong foundation in Power BI, SQL, and SSRS, I specialize in creating interactive dashboards and data-driven solutions. My goal is to help organizations make better decisions through data visualization and analysis.</p>
-            <p>I'm constantly learning and exploring new technologies to enhance my skills in data analytics and business intelligence.</p>
+          <div class="profile-right-pro">
+            <div class="main-name-pro">    
+              Bassant Samy EL-Emam
+            </div>
+            <div class="about-summary-pro">
+              Driven by a deep interest in data storytelling and business intelligence, with hands-on experience in tools like Power BI, Tableau, SQL Server, SSRS, DAX, and Python. Skilled in designing interactive dashboards, writing complex queries, and building end-to-end reporting solutions. Recently completed the ITI Power BI track, where I worked on real-world data projects and developed full reporting pipelines. Always eager to turn data into smart, actionable insights that drive impact.
+            </div>
+            <a href="Bassant samy EL-Emam.pdf" target="_blank" class="btn-download">View CV</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="skills-section">
       <div class="section-container">
         <h2>My Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <div class="skill-icon">📊</div>
+        <div class="skills-grid-pro">
+          <div class="skill-card-modern">
+            <img src="powerbi.png" alt="Power BI" class="skill-icon-img" />
             <h3>Power BI</h3>
-            <p>Advanced dashboard creation, data modeling, DAX formulas, and interactive visualizations for business intelligence.</p>
-            <div class="skill-level">
-              <div class="skill-level-bar">
-                <div class="skill-level-fill" style="width: 90%"></div>
-              </div>
-            </div>
+            <p>Dashboards, DAX, Power Query</p>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon">️</div>
+          <div class="skill-card-modern">
+            <img src="logos/sqlserver.png" alt="SQL" class="skill-icon-img" />
             <h3>SQL</h3>
-            <p>Database design, complex queries, stored procedures, and data manipulation for efficient data retrieval and analysis.</p>
-            <div class="skill-level">
-              <div class="skill-level-bar">
-                <div class="skill-level-fill" style="width: 85%"></div>
-              </div>
-            </div>
+            <p>Queries, DB Design, Data Manipulation</p>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon">📈</div>
+          <div class="skill-card-modern">
+            <img src="logos/tableau.png" alt="Tableau" class="skill-icon-img" />
             <h3>Tableau</h3>
-            <p>Dynamic visualizations, interactive dashboards, and compelling data storytelling for actionable business insights.</p>
-            <div class="skill-level">
-              <div class="skill-level-bar">
-                <div class="skill-level-fill" style="width: 80%"></div>
-              </div>
-            </div>
+            <p>Visualizations, Dashboards</p>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon">📋</div>
+          <div class="skill-card-modern">
+            <img src="logos/excel.svg" alt="Excel" class="skill-icon-img" />
             <h3>Excel</h3>
-            <p>Advanced formulas, pivot tables, VBA automation, and comprehensive data analysis for financial reporting.</p>
-            <div class="skill-level">
-              <div class="skill-level-bar">
-                <div class="skill-level-fill" style="width: 95%"></div>
-              </div>
-            </div>
+            <p>Formulas, Pivot Tables, VBA</p>
           </div>
-          <div class="skill-card">
-            <div class="skill-icon">📊</div>
-            <h3>SSRS</h3>
-            <p>SQL Server Reporting Services with parameterized reports, automated scheduling, and comprehensive reporting solutions.</p>
-            <div class="skill-level">
-              <div class="skill-level-bar">
-                <div class="skill-level-fill" style="width: 75%"></div>
-              </div>
-            </div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-icon">🔍</div>
-            <h3>Data Analysis</h3>
-            <p>Statistical analysis, data cleaning, exploratory data analysis, and transforming raw data into actionable insights.</p>
-            <div class="skill-level">
-              <div class="skill-level-bar">
-                <div class="skill-level-fill" style="width: 88%"></div>
-              </div>
-            </div>
+          <div class="skill-card-modern">
+            <img src="logos/python.svg" alt="Python" class="skill-icon-img" />
+            <h3>Python</h3>
+            <p>Pandas, Data Analysis, Visualization</p>
           </div>
         </div>
       </div>
@@ -431,55 +852,84 @@
       <div class="section-container">
         <h2>My Projects</h2>
         <div class="projects-grid">
-          <div class="project-card">
+          <!-- AdventureWorks -->
+          <div class="project-card-modern">
             <div class="project-image">
-              <img src="project1.jpg" alt="Online Exam System" />
+              <img src="dashboards/Adventure-xork.png" alt="AdventureWorks Sales Dashboard" />
             </div>
             <div class="project-content">
-              <h3>💻 Online Exam System</h3>
-              <p>Graduation Project using Power BI, SSRS, and SQL. Created a comprehensive examination management system with interactive dashboards for student performance analysis.</p>
+              <div class="project-title">AdventureWorks Sales Dashboard</div>
+              <div class="project-desc">
+                Built an interactive Power BI dashboard analyzing sales, customers, and products using the AdventureWorks dataset.
+                Includes KPIs, regional trends, customer segmentation, and top-performing products with DAX and Power Query.
+              </div>
               <div class="project-links">
-                <a href="https://app.powerbi.com/view?r=eyJrIjoi..." target="_blank" class="project-link">View Dashboard</a>
-                <a href="https://github.com/bassant-samy/exam-system" target="_blank" class="project-link">GitHub</a>
+                <a href="https://github.com/BassantEl-emem/AdventureWorks-Dashboard" target="_blank" class="modern-btn github-btn">
+                  <img src="icons8-github-50.png" style="width:22px; height:22px; vertical-align:middle;"> GitHub
+                </a>
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiOTQ2ZDY1N2QtZjc5OC00MmFmLTgwZDAtNTEwNDkyNWIwOTQ1IiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9" target="_blank" class="modern-btn dashboard-btn">
+                  <img src="powerbi.png" style="width:22px; height:22px; vertical-align:middle;"> Dashboard
+                </a>
               </div>
             </div>
           </div>
-          <div class="project-card">
+          <!-- Netflix -->
+          <div class="project-card-modern">
             <div class="project-image">
-              <img src="project2.jpg" alt="Power BI Dashboard" />
+              <img src="dashboards/netfli.png" alt="Netflix Data Analysis Dashboard" />
             </div>
             <div class="project-content">
-              <h3>📊 Power BI Dashboards</h3>
-              <p>Developed multiple interactive dashboards using Power BI for various business scenarios, providing real-time insights and data visualization with advanced filtering and drill-down capabilities.</p>
+              <div class="project-title">Netflix Data Analysis Dashboard</div>
+              <div class="project-desc">
+                Built an interactive Power BI dashboard to explore and visualize Netflix's global content. Analyzed content types, top genres, producing countries, ratings, and trends over time. Focused on clear data storytelling using Power Query and DAX.
+              </div>
               <div class="project-links">
-                <a href="https://app.powerbi.com/view?r=eyJrIjoi..." target="_blank" class="project-link">View Dashboard</a>
-                <a href="https://github.com/bassant-samy/powerbi-projects" target="_blank" class="project-link">GitHub</a>
+                <a href="https://github.com/BassantEl-emem/netflix-dashboard" target="_blank" class="modern-btn github-btn">
+                  <img src="icons8-github-50.png" style="width:22px; height:22px; vertical-align:middle;"> GitHub
+                </a>
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiNjMzODJlMGItNzVhYS00MjE1LThhMDEtY2UzMzZhODczNzlkIiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9" target="_blank" class="modern-btn dashboard-btn">
+                  <img src="powerbi.png" style="width:22px; height:22px; vertical-align:middle;"> Dashboard
+                </a>
               </div>
             </div>
           </div>
-          <div class="project-card">
+          <!-- Spotify -->
+          <div class="project-card-modern">
             <div class="project-image">
-              <img src="project3.jpg" alt="Tableau Analytics" />
+              <img src="dashboards/spotify.png" alt="Spotify Streaming Insights Dashboard" />
             </div>
             <div class="project-content">
-              <h3>📈 Tableau Analytics</h3>
-              <p>Created dynamic visualizations and interactive dashboards using Tableau, transforming complex datasets into compelling stories and actionable business insights.</p>
+              <div class="project-title">Spotify Streaming Insights Dashboard</div>
+              <div class="project-desc">
+                An interactive Tableau dashboard visualizing global Spotify data to uncover streaming trends and artist performance.
+              </div>
               <div class="project-links">
-                <a href="https://public.tableau.com/app/profile/bassant.samy" target="_blank" class="project-link">View Dashboard</a>
-                <a href="https://github.com/bassant-samy/tableau-projects" target="_blank" class="project-link">GitHub</a>
+                <a href="https://github.com/BassantEl-emem/spotify-streaming-insights" target="_blank" class="modern-btn github-btn">
+                  <img src="icons8-github-50.png" style="width:22px; height:22px; vertical-align:middle;"> GitHub
+                </a>
+                <a href="https://public.tableau.com/views/finalspotify_17530680955210/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="modern-btn dashboard-btn">
+                  <img src="logos/tableau.png" style="width:22px; height:22px; vertical-align:middle;"> Dashboard
+                </a>
               </div>
             </div>
           </div>
-          <div class="project-card">
+          <!-- Project 4 (مثال لمشروع بدون Dashboard) -->
+          <div class="project-card-modern">
             <div class="project-image">
-              <img src="project4.jpg" alt="Excel Data Analysis" />
+              <img src="468389881-14b91daa-469c-449a-b798-d58f66f81bc6.png" alt="Project 4" />
             </div>
             <div class="project-content">
-              <h3>📋 Excel Data Analysis</h3>
-              <p>Built comprehensive Excel models with advanced formulas, pivot tables, and VBA automation for financial analysis, reporting, and data processing workflows.</p>
+              <div class="project-title">Graduation Project-ITI Examination System</div>
+              <div class="project-desc">
+                
+Developed a full-stack exam management system using SQL Server, SSIS, SSRS, Power BI, and ASP.NET Core to automate exam workflows and visualize student performance. 
+              </div>
               <div class="project-links">
-                <a href="https://drive.google.com/file/d/..." target="_blank" class="project-link">Download Excel</a>
-                <a href="https://github.com/bassant-samy/excel-projects" target="_blank" class="project-link">GitHub</a>
+                <a href="https://github.com/BassantEl-emem/Examination-Management-System" target="_blank" class="modern-btn github-btn">
+                  <img src="icons8-github-50.png" style="width:22px; height:22px; vertical-align:middle;"> GitHub
+                </a>
+                <!-- زر Dashboard وهمي مخفي ليبقى الكارت متساوي -->
+                <a style="visibility:hidden" class="modern-btn dashboard-btn">Dashboard</a>
               </div>
             </div>
           </div>
@@ -490,26 +940,21 @@
       <div class="section-container">
         <h2>Get In Touch</h2>
         <div class="contact-info">
-          <div class="contact-item">
-            <span class="icon">📧</span>
-            <span class="label">Email:</span>
-            <a href="mailto:bassantsamy791@gmail.com">bassantsamy791@gmail.com</a>
-          </div>
-          <div class="contact-item">
-            <span class="icon">📱</span>
-            <span class="label">Phone:</span>
-            <a href="tel:+201148333056">+20 1148333056</a>
-          </div>
-          <div class="contact-item">
-            <span class="icon">🔗</span>
-            <span class="label">LinkedIn:</span>
-            <a href="https://www.linkedin.com/in/bassant-samy" target="_blank">linkedin.com/in/bassant-samy</a>
-          </div>
-          <div class="contact-item">
-            <span class="icon">📍</span>
-            <span class="label">Location:</span>
-            <span>Cairo, Egypt</span>
-          </div>
+          <a href="mailto:bassantsamy791@gmail.com" class="contact-btn" target="_blank">
+            <img src="google_mail_gmail_logo_icon_159346.webp" alt="Email" /> bassantsamy791@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/bassant-samy?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BEwO3bHboQeGp7hunl%2FKotQ%3D%3D" class="contact-btn" target="_blank">
+            <img src="link.png" alt="LinkedIn" /> LinkedIn
+          </a>
+          <a href="https://github.com/BassantEl-emem" class="contact-btn" target="_blank">
+            <img src="icons8-github-50.png" alt="GitHub" /> GitHub
+          </a>
+          <a href="tel:+201148333056" class="contact-btn">
+            <img src="free-phone-icon-504-thumb.png" alt="Phone" /> +20 1148333056
+          </a>
+          <a href="#" class="contact-btn" style="pointer-events:none;opacity:0.7;">
+            <img src="loca.png" alt="Location" /> Cairo, Egypt
+          </a>
         </div>
       </div>
     </section>
@@ -593,3 +1038,6 @@
   </script>
 </body>
 </html>
+
+
+
